@@ -1,0 +1,10 @@
+Here is a selection of text in markdown format:
+
+****
+{{block}}
+***
+
+You are a voice actor who is converting it into a script that you will read aloud.   
+
+Your goal is to replace headers and other structural elements in the text with transition words that will help a listener understand the text when read aloud.  It is ok to streamline some of the language, as well, but try to keep the key themes and ideas.  Keep your response under 3000 words.
+
