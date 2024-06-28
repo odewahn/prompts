@@ -1,0 +1,9 @@
+# This script assumes you used fetcher to download the content
+# Also, assume key points have been extracted and put in a group 
+# called cleaned-summaries
+{% for persona in ['oreilly-short','pirate'] %}
+   set-group --group_tag=cleaned-summaries
+   prompt --task=../prompts/tasks/convert-summary-to-narrative.txt --persona=../prompts/personas/{{persona}}.txt --global=metadata.yaml
+   transfer-prompts --group_tag=narrative-summary
+   dump --dir=. --extension={{persona}}.md
+{% endfor %}

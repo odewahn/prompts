@@ -7,20 +7,14 @@ init
    # Load a book
    load --fn=source/*.html
    transform --transformation="html2md,token-split"
-   filter --where="block_tag like '%-ch%'"
 {% else %}
    # Loading {{format}}
    load --fn=source/*.md
    transform --transformation="token-split"
 {% endif %}
-# Extract the key points
+# Filter to just chapter 1 and 2
+filter --where="block_tag like '%-ch01%' or block_tag like '%ch02%'"
 prompt --task=../prompts/tasks/extract-key-points.txt --persona=../prompts/personas/oreilly-short.txt --global=metadata.yaml
 squash --delimiter="\n************** SECTION BREAK *****************\n"
 prompt --task=../prompts/tasks/cleanup-merged-blocks.txt --global=metadata.yaml
 transfer-prompts --group_tag=cleaned-summaries
-prompt --task=../prompts/tasks/convert-summary-to-narrative.txt --persona=../prompts/personas/oreilly-short.txt --global=metadata.yaml
-transfer-prompts --group_tag=narrative-summary
-dump --dir=. 
-prompt --task=../prompts/tasks/create-audiobook-narration.txt --persona=../prompts/personas/oreilly-short.txt --global=metadata.yaml
-transfer-prompts
-dump --dir=. --extension=audio-narration.txt
