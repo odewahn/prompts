@@ -1,6 +1,6 @@
 The following selection summarizes the key points of a chapter from the book {{title}}:
 
-{{block}}
+{{content}}
 
 Produce a narrative version in markdown format that ties together the key points in a succint but approchable way.  
 
