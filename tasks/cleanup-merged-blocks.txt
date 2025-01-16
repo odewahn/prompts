@@ -1,7 +1,7 @@
 The following selection was created by breaking a long piece of text into chunks, performing a task, and then concatenating the chunks back together:
 
 ***
-{{block}}
+{{content}}
 ***
 
 Act as an editor and clean up the selection.  This can include removing duplicates, section breaks, adding transitions where appropriate, and addressing other problems so that it flows coherently.
